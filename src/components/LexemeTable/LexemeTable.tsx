@@ -48,7 +48,12 @@ export default function LexemeTable({ lexerResponse }: LexemeTableProps) {
   const [filterCategory, setFilterCategory] = useState<string>("");
 
   if (!lexerResponse) {
-    return;
+    return (
+      <div className="no-lexemes">
+        Click 'Generate Lexemes' to see the parsed results
+        <div className="loader"></div>
+      </div>
+    );
   }
 
   if (lexerResponse.status === "error") {
